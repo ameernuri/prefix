@@ -1,0 +1,7 @@
+{
+  "name": "@prefix/main",
+  "private": true,
+  "workspaces": [
+    "./packages"
+  ]
+}
