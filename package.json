@@ -1,6 +1,9 @@
 {
   "name": "@prefix/main",
   "private": true,
+  "scripts": {
+    "client:dev": "yarn --cwd ./packages/client dev"
+  },
   "workspaces": [
     "./packages"
   ]
