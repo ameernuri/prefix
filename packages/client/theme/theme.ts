@@ -8,13 +8,13 @@ export interface Theme {
   }
 }
 
-export const colors = (arg: ThemeProps<any> = { theme: darkTheme }) => {
-  return arg.theme.colors
+export const colors = (props: ThemeProps<any> = { theme: darkTheme }) => {
+  return props.theme.colors
 }
 
 export const darkTheme: Theme = {
   colors: {
-    primary: 'red',
+    primary: '#008862',
     background: '#080b14',
     foreground: '#ffffff',
   },
