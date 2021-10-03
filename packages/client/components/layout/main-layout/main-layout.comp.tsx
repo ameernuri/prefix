@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Navbar } from '../common/navbar/navbar.comp'
+import { MainLayoutStyled } from './main-layout.styled'
 
 export const MainLayout = ({ title, children }) => {
   return (
@@ -11,8 +12,10 @@ export const MainLayout = ({ title, children }) => {
       </Head>
 
       <main>
-        <Navbar />
-        {children}
+        <MainLayoutStyled>
+          <Navbar />
+          <div className='content'>{children}</div>
+        </MainLayoutStyled>
       </main>
     </>
   )
