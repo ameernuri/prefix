@@ -13,9 +13,11 @@ services:
     image: dgraph/dgraph:v21.03.2
     volumes:
       - ~/.dgraph/prefix/alpha:/dgraph
-      - ./dgraph/:/schema
+      - ./schema:/schema
     ports:
       - 8080:8080
       - 9080:9080
     restart: on-failure
-    command: dgraph alpha --my=alpha:7080 --zero=zero:5080
+    command: >
+      bash -c "dgraph alpha --my=alpha:7080 --zero=zero:5080 &&
+      /schema/update-schema.sh"

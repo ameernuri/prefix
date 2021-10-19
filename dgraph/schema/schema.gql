@@ -1,15 +1,10 @@
-type Node {
+type Module {
   id: ID!
   title: String! @search(by: [term, hash, regexp, fulltext])
   content: String @search(by: [term, hash, regexp, fulltext])
   user: User!
-  nodeSchema: NodeSchema!
+  moduleType: String!
   createdAt: DateTime!
-}
-
-type NodeSchema {
-  id: ID!
-  name: String!
 }
 
 type User {
