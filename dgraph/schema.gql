@@ -1,0 +1,20 @@
+type Node {
+  id: ID!
+  title: String! @search(by: [term, hash, regexp, fulltext])
+  content: String @search(by: [term, hash, regexp, fulltext])
+  user: User!
+  nodeSchema: NodeSchema!
+  createdAt: DateTime!
+}
+
+type NodeSchema {
+  id: ID!
+  name: String!
+}
+
+type User {
+  id: ID!
+  firstName: String! @search(by: [term, hash])
+  lastName: String @search(by: [term, hash])
+  email: String! @search(by: [hash])
+}
