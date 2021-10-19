@@ -5,6 +5,7 @@ export interface Theme {
     primary?: string
     background?: string
     foreground?: string
+    light?: string
   }
 }
 
@@ -14,8 +15,9 @@ export const colors = (props: ThemeProps<any> = { theme: darkTheme }) => {
 
 export const darkTheme: Theme = {
   colors: {
-    primary: '#008862',
-    background: '#080b14',
+    primary: '#11aa77',
+    background: '#070b12',
     foreground: '#ffffff',
+    light: '#eeeeee',
   },
 }

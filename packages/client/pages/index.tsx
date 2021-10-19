@@ -1,33 +1,30 @@
+import { addDoc, collection, doc } from '@firebase/firestore'
+import { getDocs } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
 import { Title } from '../components/common/title/title.comp'
 import { MainLayout } from '../components/layout/main-layout/main-layout.comp'
 
-import { gql } from '@apollo/client'
-import { apolloClient } from '../gql/apollo'
+import { db } from '../firebase'
 
-export const getStaticProps = async () => {
-  const { data } = await apolloClient.query({
-    query: gql`
-      query People($filter: PersonFilter) {
-        queryPerson(filter: $filter) {
-          name
-        }
-      }
-    `,
-    variables: {},
-  })
+const Home = () => {
+  const [articles, setArticles] = useState([])
 
-  return {
-    props: {
-      people: data,
-    },
+  useEffect(() => {
+    fetchArticles()
+  }, [])
+
+  const fetchArticles = async () => {
+    const snap = await getDocs(collection(db, 'articles'))
+
+    const docs = snap.docs.map((article) => article.data())
+
+    setArticles(docs)
   }
-}
 
-const Home = ({ people }) => {
   return (
     <MainLayout title='Prefix: Find answers for your software development questions'>
       <Title />
-      <pre>{JSON.stringify(people)}</pre>
+      <pre>{JSON.stringify(articles)}</pre>
     </MainLayout>
   )
 }

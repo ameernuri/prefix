@@ -13,6 +13,9 @@ export const Navbar = () => {
           className='logo'
         />
       </div>
+      <div className='right-side'>
+        <a className='username'>glixch</a>
+      </div>
     </NavbarStyled>
   )
 }
