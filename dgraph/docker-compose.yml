@@ -17,7 +17,7 @@ services:
     ports:
       - 8080:8080
       - 9080:9080
-    restart: on-failure
+    restart: always
     command: >
       bash -c "dgraph alpha --my=alpha:7080 --zero=zero:5080 &&
       /schema/update-schema.sh"
